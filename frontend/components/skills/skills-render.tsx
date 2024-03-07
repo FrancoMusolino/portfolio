@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import SectionHeading from "./section-heading";
-import { skillsData } from "@/lib/data";
-import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
+
+import SectionHeading from "../section-heading";
+import { useSectionInView } from "@/lib/hooks";
+import { getSkills } from "@/lib/strapi";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -20,7 +21,11 @@ const fadeInAnimationVariants = {
   }),
 };
 
-export default function Skills() {
+type SkillsRenderProps = {
+  skills: Awaited<ReturnType<typeof getSkills>>;
+};
+
+export function SkillsRender({ skills }: SkillsRenderProps) {
   const { ref } = useSectionInView("Skills");
 
   return (
@@ -31,7 +36,7 @@ export default function Skills() {
     >
       <SectionHeading>My skills</SectionHeading>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
+        {skills.map(({ attributes }, index) => (
           <motion.li
             className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
             key={index}
@@ -43,7 +48,7 @@ export default function Skills() {
             }}
             custom={index}
           >
-            {skill}
+            {attributes.name}
           </motion.li>
         ))}
       </ul>
