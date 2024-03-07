@@ -4,7 +4,8 @@
   "info": {
     "singularName": "skill",
     "pluralName": "skills",
-    "displayName": "Skills"
+    "displayName": "Skills",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,12 @@
       "required": true,
       "unique": true,
       "maxLength": 55
+    },
+    "order": {
+      "type": "integer",
+      "unique": false,
+      "default": 1,
+      "required": true
     }
   }
 }
