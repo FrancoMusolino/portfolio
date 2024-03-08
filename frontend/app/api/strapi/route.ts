@@ -4,11 +4,19 @@ import { timingSafeEqual } from "crypto";
 
 import { STRAPI_MODELS } from "@/lib/strapi/constants";
 
+type StrapiEvent = "entry.publish" | "entry.unpublish" | "entry.update";
+
 type StrapiPayload = {
-  event: "entry.publish" | "entry.unpublish";
+  event: StrapiEvent;
   createdAt: Date;
   model: keyof typeof STRAPI_MODELS;
   entry: any;
+};
+
+const MESSAGES_BY_EVENT: Record<StrapiEvent, string> = {
+  "entry.update": "updated",
+  "entry.publish": "published",
+  "entry.unpublish": "unpublished",
 };
 
 export async function POST(req: Request) {
@@ -40,11 +48,7 @@ export async function POST(req: Request) {
   const data = (await req.json()) as StrapiPayload;
   revalidateTag(STRAPI_MODELS[data.model]);
 
-  console.log(
-    `Entry ${
-      data.event === "entry.publish" ? "published" : "unpublished"
-    } on model ${data.model}`
-  );
+  console.log(`Entry ${MESSAGES_BY_EVENT[data.event]} on model ${data.model}`);
 
   return Response.json({ received: true });
 }
