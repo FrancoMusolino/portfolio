@@ -1,15 +1,13 @@
 {
-  "kind": "singleType",
+  "kind": "collectionType",
   "collectionName": "abouts",
   "info": {
     "singularName": "about",
     "pluralName": "abouts",
-    "displayName": "About",
-    "description": ""
+    "displayName": "About"
   },
   "options": {
-    "draftAndPublish": true,
-    "i18n": true
+    "draftAndPublish": true
   },
   "pluginOptions": {
     "i18n": {
