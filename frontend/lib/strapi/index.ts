@@ -1,10 +1,13 @@
 import { STRAPI_MODELS } from "./constants";
-import { getAboutByLocaleQuery } from "./queries/about";
 
 // QUERIES
+import { getIntroByLocaleQuery } from "./queries/intro";
+import { getAboutByLocaleQuery } from "./queries/about";
 import { getSkillsQuery } from "./queries/skills";
+
 import {
   GetAboutByLocaleOperation,
+  GetIntroByLocaleOperation,
   GetSkillsOperation,
   Locale,
   StrapiResponse,
@@ -71,15 +74,16 @@ export async function strapiFetch<
   }
 }
 
-export const getSkills = async (): Promise<
-  GetSkillsOperation["data"]["skills"]["data"]
-> => {
-  const { body } = await strapiFetch<GetSkillsOperation>({
-    query: getSkillsQuery,
-    next: { tags: [STRAPI_MODELS.skill] },
+export const getIntroByLocale = async (
+  locale: Locale
+): Promise<string | null> => {
+  const { body } = await strapiFetch<GetIntroByLocaleOperation>({
+    query: getIntroByLocaleQuery,
+    variables: { locale },
+    next: { tags: [STRAPI_MODELS.intro] },
   });
 
-  return body.data.skills.data;
+  return body.data.intros.data.at(0)?.attributes.text ?? null;
 };
 
 export const getAboutByLocale = async (
@@ -92,4 +96,15 @@ export const getAboutByLocale = async (
   });
 
   return body.data.abouts.data.at(0)?.attributes.text ?? null;
+};
+
+export const getSkills = async (): Promise<
+  GetSkillsOperation["data"]["skills"]["data"]
+> => {
+  const { body } = await strapiFetch<GetSkillsOperation>({
+    query: getSkillsQuery,
+    next: { tags: [STRAPI_MODELS.skill] },
+  });
+
+  return body.data.skills.data;
 };

@@ -830,6 +830,53 @@ export interface ApiAboutAbout extends Schema.CollectionType {
   };
 }
 
+export interface ApiIntroIntro extends Schema.CollectionType {
+  collectionName: 'intros';
+  info: {
+    singularName: 'intro';
+    pluralName: 'intros';
+    displayName: 'Intro';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    text: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::intro.intro',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::intro.intro',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::intro.intro',
+      'oneToMany',
+      'api::intro.intro'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiSkillSkill extends Schema.CollectionType {
   collectionName: 'skills';
   info: {
@@ -886,6 +933,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about.about': ApiAboutAbout;
+      'api::intro.intro': ApiIntroIntro;
       'api::skill.skill': ApiSkillSkill;
     }
   }
