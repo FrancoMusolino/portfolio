@@ -1,11 +1,13 @@
-import Header from "@/components/header";
-import "./globals.css";
+import { Toaster } from "react-hot-toast";
 import { Inter } from "next/font/google";
+import "../globals.css";
+
+import { Header } from "@/components/header";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
-import { Toaster } from "react-hot-toast";
+import { Locale } from "@/lib/strapi/types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,13 +16,19 @@ export const metadata = {
   description: "Ricardo is a full-stack developer with 8 years of experience.",
 };
 
+export async function generateStaticParams() {
+  return [{ lang: "es" }, { lang: "en" }];
+}
+
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { lang: Locale };
 }) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang={params.lang} className="!scroll-smooth">
       <body
         className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
       >
@@ -29,7 +37,7 @@ export default function RootLayout({
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
-            <Header />
+            <Header lang={params.lang} />
             {children}
             <Footer />
 

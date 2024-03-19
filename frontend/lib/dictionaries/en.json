@@ -1,0 +1,34 @@
+{
+  "header": [
+    {
+      "name": "Home",
+      "hash": "#home",
+      "section-identifier": "home"
+    },
+    {
+      "name": "About",
+      "hash": "#about",
+      "section-identifier": "about"
+    },
+    {
+      "name": "Projects",
+      "hash": "#projects",
+      "section-identifier": "projects"
+    },
+    {
+      "name": "Skills",
+      "hash": "#skills",
+      "section-identifier": "skills"
+    },
+    {
+      "name": "Experience",
+      "hash": "#experience",
+      "section-identifier": "experience"
+    },
+    {
+      "name": "Contact",
+      "hash": "#contact",
+      "section-identifier": "contact"
+    }
+  ]
+}
