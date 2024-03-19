@@ -2,11 +2,12 @@ import { Toaster } from "react-hot-toast";
 import { Inter } from "next/font/google";
 import "../globals.css";
 
-import Header from "@/components/header";
+import { Header } from "@/components/header";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
+import { Locale } from "@/lib/strapi/types";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,7 @@ export default function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: { lang: Locale };
 }) {
   return (
     <html lang={params.lang} className="!scroll-smooth">
@@ -36,7 +37,7 @@ export default function RootLayout({
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
-            <Header />
+            <Header lang={params.lang} />
             {children}
             <Footer />
 

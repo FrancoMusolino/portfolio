@@ -3,11 +3,12 @@ import { headers } from "next/headers";
 import Negotiator from "negotiator";
 import { match } from "@formatjs/intl-localematcher";
 import { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/headers";
+import { Locale } from "./lib/strapi/types";
 
-const supportedLocales = ["es", "en"];
-const defaultLocale = "es";
+const supportedLocales: Locale[] = ["es", "en"];
+const defaultLocale: Locale = "es";
 
-function getLocale(headers: ReadonlyHeaders): string {
+function getLocale(headers: ReadonlyHeaders): Locale {
   const languageHeader = Object.fromEntries(
     Array.from(headers.entries()).filter(
       ([header]) => header === "accept-language"
@@ -15,7 +16,7 @@ function getLocale(headers: ReadonlyHeaders): string {
   );
 
   const languages = new Negotiator({ headers: languageHeader }).languages();
-  return match(languages, supportedLocales, defaultLocale);
+  return match(languages, supportedLocales, defaultLocale) as Locale;
 }
 
 export function middleware(request: NextRequest) {
@@ -37,9 +38,13 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    // "/((?!_next).*)",
-    // only run on root (/) URL
-    "/",
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    "/((?!api|_next/static|_next/image|favicon.ico).*)",
   ],
 };

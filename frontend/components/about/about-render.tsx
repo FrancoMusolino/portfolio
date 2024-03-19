@@ -14,7 +14,7 @@ type AboutRenderProps = {
 };
 
 export function AboutRender({ aboutMDX }: AboutRenderProps) {
-  const { ref } = useSectionInView("About");
+  const { ref } = useSectionInView("about");
 
   return (
     <motion.section

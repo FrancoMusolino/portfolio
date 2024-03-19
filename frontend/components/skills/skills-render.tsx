@@ -26,7 +26,7 @@ type SkillsRenderProps = {
 };
 
 export function SkillsRender({ skills }: SkillsRenderProps) {
-  const { ref } = useSectionInView("Skills");
+  const { ref } = useSectionInView("skills");
 
   return (
     <section
