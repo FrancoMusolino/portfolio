@@ -8,19 +8,26 @@ type AttributesWrapper<T extends object> = {
   attributes: T;
 };
 
-type SkillAttributes = AttributesWrapper<{
-  name: string;
-}>;
-
 type AboutAttributes = AttributesWrapper<{
   text: string;
 }>;
 
-export type GetSkillsOperation = {
+type IntroAttributes = AttributesWrapper<{
+  text: string;
+}>;
+
+type SkillAttributes = AttributesWrapper<{
+  name: string;
+}>;
+
+export type GetIntroByLocaleOperation = {
   data: {
-    skills: {
-      data: SkillAttributes[];
+    intros: {
+      data: IntroAttributes[];
     };
+  };
+  variables: {
+    locale: Locale;
   };
 };
 
@@ -32,5 +39,13 @@ export type GetAboutByLocaleOperation = {
   };
   variables: {
     locale: Locale;
+  };
+};
+
+export type GetSkillsOperation = {
+  data: {
+    skills: {
+      data: SkillAttributes[];
+    };
   };
 };
