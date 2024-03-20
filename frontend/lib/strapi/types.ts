@@ -8,8 +8,32 @@ type AttributesWrapper<T extends object> = {
   attributes: T;
 };
 
+type ImageAttributes = AttributesWrapper<{
+  formats: {
+    thumbnail: {
+      url: string;
+    };
+    small: {
+      url: string;
+    };
+    medium: {
+      url: string;
+    };
+    large: {
+      url: string;
+    };
+  };
+}>;
+
 type AboutAttributes = AttributesWrapper<{
   text: string;
+}>;
+
+type ProjectAttributes = AttributesWrapper<{
+  title: string;
+  description: string;
+  image: { data: ImageAttributes };
+  skills: { data: SkillAttributes[] };
 }>;
 
 type IntroAttributes = AttributesWrapper<{
@@ -35,6 +59,17 @@ export type GetAboutByLocaleOperation = {
   data: {
     abouts: {
       data: AboutAttributes[];
+    };
+  };
+  variables: {
+    locale: Locale;
+  };
+};
+
+export type GetProjectsByLocaleOperation = {
+  data: {
+    projects: {
+      data: ProjectAttributes[];
     };
   };
   variables: {
