@@ -57,8 +57,8 @@ export function ProjectCard({
         <Image
           src={imageUrl.large}
           alt={title}
-          width={450}
-          height={450}
+          width={750}
+          height={260}
           className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
         transition 
         group-hover:scale-[1.04]
