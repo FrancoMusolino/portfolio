@@ -34,5 +34,8 @@
   "intro": {
     "contact": "Contáctame aquí",
     "cv": "Descargar CV"
+  },
+  "projects": {
+    "title": "Mis Proyectos"
   }
 }

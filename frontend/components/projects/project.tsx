@@ -1,18 +1,24 @@
 "use client";
 
 import { useRef } from "react";
-import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-type ProjectProps = (typeof projectsData)[number];
+export type Project = {
+  title: string;
+  description: string;
+  skills: string[];
+  imageUrl: { small: string; medium: string; large: string };
+};
 
-export default function Project({
+type ProjectCardProps = Project;
+
+export function ProjectCard({
   title,
   description,
-  tags,
+  skills,
   imageUrl,
-}: ProjectProps) {
+}: ProjectCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -37,7 +43,7 @@ export default function Project({
             {description}
           </p>
           <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
-            {tags.map((tag, index) => (
+            {skills.map((tag, index) => (
               <li
                 className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
                 key={index}
@@ -49,9 +55,10 @@ export default function Project({
         </div>
 
         <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
+          src={imageUrl.large}
+          alt={title}
+          width={750}
+          height={260}
           className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
         transition 
         group-hover:scale-[1.04]
