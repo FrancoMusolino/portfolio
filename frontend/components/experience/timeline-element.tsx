@@ -12,7 +12,7 @@ export const TimelineElement = ({
   item: (typeof experiencesData)[number];
 }) => {
   const { theme } = useTheme();
-  const { ref, inView } = useInView({ triggerOnce: true });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.8 });
 
   return (
     <VerticalTimelineElement

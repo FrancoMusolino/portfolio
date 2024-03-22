@@ -1,6 +1,7 @@
 export const STRAPI_MODELS = {
-  skill: "skill",
-  project: "project",
-  about: "about",
   intro: "intro",
+  about: "about",
+  project: "project",
+  skill: "skill",
+  experience: "experience",
 } as const;
