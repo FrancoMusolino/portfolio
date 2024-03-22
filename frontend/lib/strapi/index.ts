@@ -3,17 +3,19 @@ import { STRAPI_MODELS } from "./constants";
 // QUERIES
 import { getIntroByLocaleQuery } from "./queries/intro";
 import { getAboutByLocaleQuery } from "./queries/about";
+import { getProjectsByLocaleQuery } from "./queries/projects";
 import { getSkillsQuery } from "./queries/skills";
+import { getExperienceByLocaleQuery } from "./queries/experience";
 
 import {
   GetAboutByLocaleOperation,
+  GetExperienceByLocaleOperation,
   GetIntroByLocaleOperation,
   GetProjectsByLocaleOperation,
   GetSkillsOperation,
   Locale,
   StrapiResponse,
 } from "./types";
-import { getProjectsByLocaleQuery } from "./queries/projects";
 
 const endpoint = `${process.env.STRAPI_DOMAIN!}/graphql`;
 
@@ -121,4 +123,16 @@ export const getSkills = async (): Promise<
   });
 
   return body.data.skills.data;
+};
+
+export const getExperienceByLocale = async (
+  locale: Locale
+): Promise<GetExperienceByLocaleOperation["data"]["experiences"]> => {
+  const { body } = await strapiFetch<GetExperienceByLocaleOperation>({
+    query: getExperienceByLocaleQuery,
+    variables: { locale },
+    next: { tags: [STRAPI_MODELS.experience] },
+  });
+
+  return body.data.experiences;
 };

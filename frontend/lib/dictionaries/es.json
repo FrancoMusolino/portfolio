@@ -37,5 +37,8 @@
   },
   "projects": {
     "title": "Mis Proyectos"
+  },
+  "experience": {
+    "title": "Mi experiencia"
   }
 }

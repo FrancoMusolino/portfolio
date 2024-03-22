@@ -44,6 +44,14 @@ type SkillAttributes = AttributesWrapper<{
   name: string;
 }>;
 
+type ExperienceAttributes = AttributesWrapper<{
+  title: string;
+  description: string;
+  icon: string;
+  startedOn: Date;
+  finishedAt: Date | null;
+}>;
+
 export type GetIntroByLocaleOperation = {
   data: {
     intros: {
@@ -82,5 +90,16 @@ export type GetSkillsOperation = {
     skills: {
       data: SkillAttributes[];
     };
+  };
+};
+
+export type GetExperienceByLocaleOperation = {
+  data: {
+    experiences: {
+      data: ExperienceAttributes[];
+    };
+  };
+  variables: {
+    locale: Locale;
   };
 };
