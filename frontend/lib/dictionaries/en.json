@@ -40,5 +40,11 @@
   },
   "experience": {
     "title": "My Experience"
+  },
+  "contact": {
+    "title": "Contect Me",
+    "description": "Please, contact me via email - francomusolino55@gmail.com - or directly via message using WhatsApp!",
+    "button": "Submit",
+    "successText": "Email sent successfully!"
   }
 }

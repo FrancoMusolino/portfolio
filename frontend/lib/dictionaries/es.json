@@ -40,5 +40,11 @@
   },
   "experience": {
     "title": "Mi experiencia"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "description": "Por favor, contáctame vía email - francomusolino55@gmail.com - o envíame un mensaje directo al WhatsApp!",
+    "button": "Enviar",
+    "successText": "Email enviado correctamente!"
   }
 }
