@@ -1,6 +1,7 @@
 import React from "react";
-import { FaPaperPlane } from "react-icons/fa";
 import { useFormStatus } from "react-dom";
+
+import { PaperPlaneIcon } from "./icons";
 
 type SubmitBtnProps = {
   text: string;
@@ -20,7 +21,9 @@ export function SubmitBtn({ text }: SubmitBtnProps) {
       ) : (
         <>
           {text}{" "}
-          <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />{" "}
+          <div className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1">
+            <PaperPlaneIcon />
+          </div>
         </>
       )}
     </button>

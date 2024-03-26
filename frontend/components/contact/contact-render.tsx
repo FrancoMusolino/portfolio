@@ -3,13 +3,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
-import { FaWhatsapp } from "react-icons/fa";
 
 import SectionHeading from "../section-heading";
 import { useSectionInView } from "@/lib/hooks";
 import { sendEmail } from "@/actions/sendEmail";
 import { SubmitBtn } from "../submit-btn";
 import { EMAIL_REGEXP } from "@/lib/constants";
+import { WhatsAppIcon } from "../icons";
 
 type ContactRenderProps = {
   title: string;
@@ -99,10 +99,9 @@ export function ContactRender({
               className="flex items-center justify-center gap-2"
             >
               WhatsApp
-              <FaWhatsapp
-                className="text-xs opacity-80 transition-all group-hover:scale-110"
-                size={18}
-              />{" "}
+              <div className="text-xs opacity-80 transition-all group-hover:scale-110">
+                <WhatsAppIcon />
+              </div>
             </a>
           </button>
         </div>

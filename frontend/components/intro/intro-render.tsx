@@ -1,18 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
-import { HiDownload } from "react-icons/hi";
-import { FaGithubSquare } from "react-icons/fa";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import { ArrowRight, DownloadIcon, GithubIcon } from "../icons";
 
 type IntroRenderProps = {
   introMDX: string;
@@ -98,7 +96,9 @@ export function IntroRender({
           }}
         >
           {contactText}{" "}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
+          <div className="opacity-70 group-hover:translate-x-1 transition">
+            <ArrowRight />
+          </div>
         </Link>
 
         <a
@@ -107,7 +107,9 @@ export function IntroRender({
           download
         >
           {cvText}{" "}
-          <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
+          <div className="opacity-60 group-hover:translate-y-1 transition">
+            <DownloadIcon />
+          </div>
         </a>
 
         {/* <a
@@ -125,7 +127,7 @@ export function IntroRender({
           rel="noopener noreferrer"
           title="GitHub"
         >
-          <FaGithubSquare />
+          <GithubIcon />
         </a>
       </motion.div>
     </section>
