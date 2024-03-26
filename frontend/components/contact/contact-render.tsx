@@ -28,7 +28,7 @@ export function ContactRender({
 
   const html = description.replace(
     EMAIL_REGEXP,
-    (match) => `<a className="!underline" href="mailto:${match}">${match}</a>`
+    (match) => `<a class="!underline" href="mailto:${match}">${match}</a>`
   );
 
   return (
