@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+
 import ActiveSectionContextProvider from "@/context/active-section-context";
-import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Locale } from "@/lib/strapi/types";
@@ -39,7 +40,7 @@ export default function RootLayout({
           <ActiveSectionContextProvider>
             <Header lang={params.lang} />
             {children}
-            <Footer />
+            <Footer locale={params.lang} />
 
             <Toaster position="top-right" />
             <ThemeSwitch />

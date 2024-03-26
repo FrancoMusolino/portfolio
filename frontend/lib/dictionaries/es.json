@@ -46,5 +46,9 @@
     "description": "Por favor, contáctame vía email - francomusolino55@gmail.com - o envíame un mensaje directo al WhatsApp!",
     "button": "Enviar",
     "successText": "Email enviado correctamente!"
+  },
+  "footer": {
+    "rights": "2024 Franco. Todos los derechos reservados",
+    "about": "Este sitio fue desarrollado con React & Next.js, TypeScript, Tailwind CSS, Framer Motion, Strapi CMS & Vercel hosting"
   }
 }

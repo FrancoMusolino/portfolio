@@ -46,5 +46,9 @@
     "description": "Please, contact me via email - francomusolino55@gmail.com - or directly via message using WhatsApp!",
     "button": "Submit",
     "successText": "Email sent successfully!"
+  },
+  "footer": {
+    "rights": "2024 Franco Musolino. All rights reserved.",
+    "about": "This website was built with React & Next.js, TypeScript, Tailwind CSS, Framer Motion, Strapi CMS & Vercel hosting"
   }
 }
