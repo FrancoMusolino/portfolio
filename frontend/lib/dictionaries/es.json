@@ -50,5 +50,9 @@
   "footer": {
     "rights": "2024 Franco. Todos los derechos reservados",
     "about": "Este sitio fue desarrollado con React & Next.js, TypeScript, Tailwind CSS, Framer Motion, Strapi CMS & Vercel hosting"
+  },
+  "notFound": {
+    "title": "Esta página no ha sido encontrada",
+    "buttonText": "Volver atrás"
   }
 }

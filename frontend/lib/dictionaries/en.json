@@ -50,5 +50,9 @@
   "footer": {
     "rights": "2024 Franco Musolino. All rights reserved.",
     "about": "This website was built with React & Next.js, TypeScript, Tailwind CSS, Framer Motion, Strapi CMS & Vercel hosting"
+  },
+  "notFound": {
+    "title": "This page couldn't be found",
+    "buttonText": "Go back"
   }
 }
