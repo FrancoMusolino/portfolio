@@ -10,6 +10,8 @@ import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
 import { Locale } from "@/lib/strapi/types";
 
+import { getDictionary } from "./dictionaries";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -21,13 +23,15 @@ export async function generateStaticParams() {
   return [{ lang: "es" }, { lang: "en" }];
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: { lang: Locale };
 }) {
+  const dict = await getDictionary(params.lang);
+
   return (
     <html lang={params.lang} className="!scroll-smooth">
       <body
@@ -38,9 +42,9 @@ export default function RootLayout({
 
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
-            <Header lang={params.lang} />
+            <Header headerDict={dict.header} />
             {children}
-            <Footer locale={params.lang} />
+            <Footer footerDict={dict.footer} />
 
             <Toaster position="top-right" />
             <ThemeSwitch />

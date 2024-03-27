@@ -14,14 +14,14 @@ import { WhatsAppIcon } from "../icons";
 type ContactRenderProps = {
   title: string;
   description: string;
-  buttonText: string;
+  submitText: string;
   successText: string;
 };
 
 export function ContactRender({
   title,
   description,
-  buttonText,
+  submitText,
   successText,
 }: ContactRenderProps) {
   const { ref } = useSectionInView("contact");
@@ -86,7 +86,7 @@ export function ContactRender({
         />
 
         <div className="flex gap-3">
-          <SubmitBtn text={buttonText} />
+          <SubmitBtn text={submitText} />
 
           <button
             type="button"

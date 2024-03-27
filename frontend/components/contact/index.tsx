@@ -1,22 +1,12 @@
 import React from "react";
 
 import { ContactRender } from "./contact-render";
-import { getDictionary } from "@/app/[lang]/dictionaries";
-import { Locale } from "@/lib/strapi/types";
+import { Dictionary } from "@/app/[lang]/dictionaries";
 
 type ContactProps = {
-  locale: Locale;
+  contactDict: Dictionary["contact"];
 };
 
-export async function Contact({ locale }: ContactProps) {
-  const dict = await getDictionary(locale);
-
-  return (
-    <ContactRender
-      title={dict.contact.title}
-      description={dict.contact.description}
-      buttonText={dict.contact.button}
-      successText={dict.contact.successText}
-    />
-  );
+export async function Contact({ contactDict }: ContactProps) {
+  return <ContactRender {...contactDict} />;
 }

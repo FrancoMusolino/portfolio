@@ -1,25 +1,20 @@
 import React from "react";
 
-import { ExperienceRender } from "./experience-render";
 import { Locale } from "@/lib/strapi/types";
 import { getExperienceByLocale } from "@/lib/strapi";
-import { Experience } from "./experience-timeline-element";
-import { getDictionary } from "@/app/[lang]/dictionaries";
+import { Dictionary } from "@/app/[lang]/dictionaries";
+
+import { ExperienceRender } from "./experience-render";
 
 type ExperienceProps = {
   lang: Locale;
+  experienceDict: Dictionary["experience"];
 };
 
-export async function Experience({ lang }: ExperienceProps) {
-  const [experience, dict] = await Promise.all([
-    getExperienceByLocale(lang),
-    getDictionary(lang),
-  ]);
+export async function Experience({ lang, experienceDict }: ExperienceProps) {
+  const experience = await getExperienceByLocale(lang);
 
-  const items = experience.data.reduce<Experience[]>((acc, { attributes }) => {
-    acc.push(attributes);
-    return acc;
-  }, []);
+  const items = experience.data.map((experience) => experience.attributes);
 
-  return <ExperienceRender title={dict.experience.title} items={items} />;
+  return <ExperienceRender items={items} {...experienceDict} />;
 }

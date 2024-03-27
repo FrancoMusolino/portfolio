@@ -32,8 +32,8 @@
     }
   ],
   "intro": {
-    "contact": "Contáctame aquí",
-    "cv": "Descargar CV"
+    "contactText": "Contáctame aquí",
+    "cvText": "Descargar CV"
   },
   "projects": {
     "title": "Mis Proyectos"
@@ -44,7 +44,7 @@
   "contact": {
     "title": "Contáctame",
     "description": "Por favor, contáctame vía email - francomusolino55@gmail.com - o envíame un mensaje directo al WhatsApp!",
-    "button": "Enviar",
+    "submitText": "Enviar",
     "successText": "Email enviado correctamente!"
   },
   "footer": {

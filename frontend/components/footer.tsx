@@ -1,17 +1,14 @@
-import { getDictionary } from "@/app/[lang]/dictionaries";
-import { Locale } from "@/lib/strapi/types";
+import { Dictionary } from "@/app/[lang]/dictionaries";
 
 type FooterProps = {
-  locale: Locale;
+  footerDict: Dictionary["footer"];
 };
 
-export async function Footer({ locale }: FooterProps) {
-  const { footer } = await getDictionary(locale);
-
+export async function Footer({ footerDict }: FooterProps) {
   return (
     <footer className="mb-10 px-4 text-center text-gray-500">
-      <small className="mb-2 block text-xs">&copy; {footer.rights}</small>
-      <p className="text-xs">{footer.about}</p>
+      <small className="mb-2 block text-xs">&copy; {footerDict.rights}</small>
+      <p className="text-xs">{footerDict.about}</p>
     </footer>
   );
 }
