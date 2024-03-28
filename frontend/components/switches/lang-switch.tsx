@@ -43,7 +43,7 @@ export const LangSwitch = () => {
                   scroll={false}
                   className={clsx(
                     active
-                      ? "bg-gray-200 text-gray-900 dark:bg-gray-950 dark:text-gray-100"
+                      ? "bg-gray-200 text-gray-900 dark:bg-[#0b0f1a] dark:text-gray-100"
                       : "text-gray-950 dark:text-gray-50 dark:text-opacity-90",
                     "block px-4 py-2 text-sm rounded-md"
                   )}
