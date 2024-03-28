@@ -15,10 +15,17 @@ import { Switches } from "@/components/switches";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Ricardo | Personal Portfolio",
-  description: "Ricardo is a full-stack developer with 8 years of experience.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: Locale };
+}) {
+  const { seo } = await getDictionary(params.lang);
+
+  return {
+    ...seo,
+  };
+}
 
 export async function generateStaticParams() {
   return [{ lang: "es" }, { lang: "en" }];

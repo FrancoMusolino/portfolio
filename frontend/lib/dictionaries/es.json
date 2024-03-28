@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Franco | Portfolio Personal",
+    "description": "¡Hola! Soy Franco, bienvenido a mi portfolio personal. Soy un desarrollador full-stack apasionado, en su mayoría autodidacta, con más de 4 años de experiencia"
+  },
   "header": [
     {
       "name": "Home",

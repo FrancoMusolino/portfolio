@@ -25,9 +25,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       <Suspense fallback={<></>}>
         <Skills />
       </Suspense>
-      <Suspense fallback={<></>}>
-        <Experience lang={params.lang} experienceDict={dict.experience} />
-      </Suspense>
+      <Experience lang={params.lang} experienceDict={dict.experience} />
       <Contact contactDict={dict.contact} />
     </main>
   );

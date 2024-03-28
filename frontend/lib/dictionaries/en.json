@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Franco | Personal Portfolio",
+    "description": "Hi!! I'm Franco, welcome to my personal Portfolio. I'm a passionate mostly self-taught full-stack developer with over 4 year of experience."
+  },
   "header": [
     {
       "name": "Home",
