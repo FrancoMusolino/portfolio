@@ -6,11 +6,12 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 import ActiveSectionContextProvider from "@/context/active-section-context";
-import ThemeSwitch from "@/components/theme-switch";
 import ThemeContextProvider from "@/context/theme-context";
-import { Locale } from "@/lib/strapi/types";
 
+import { Locale } from "@/lib/strapi/types";
 import { getDictionary } from "./dictionaries";
+
+import { Switches } from "@/components/switches";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +48,7 @@ export default async function RootLayout({
             <Footer footerDict={dict.footer} />
 
             <Toaster position="top-right" />
-            <ThemeSwitch />
+            <Switches />
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>
