@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Toaster } from "react-hot-toast";
 import { Inter } from "next/font/google";
 import "../globals.css";
@@ -19,11 +20,15 @@ export async function generateMetadata({
   params,
 }: {
   params: { lang: Locale };
-}) {
+}): Promise<Metadata> {
   const { seo } = await getDictionary(params.lang);
 
   return {
     ...seo,
+    openGraph: {
+      ...seo,
+      url: `https://${process.env.VERCEL_URL}/${params.lang}`,
+    },
   };
 }
 
