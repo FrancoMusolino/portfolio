@@ -1,0 +1,62 @@
+{
+  "seo": {
+    "title": "Franco | Portfolio Personal",
+    "description": "¡Hola! Bienvenido a mi portfolio personal. Soy Franco, un apasionado desarrollador full-stack, en su mayoría autodidacta, con más de 4 años de experiencia"
+  },
+  "header": [
+    {
+      "name": "Home",
+      "hash": "#home",
+      "section-identifier": "home"
+    },
+    {
+      "name": "Sobre mí",
+      "hash": "#about",
+      "section-identifier": "about"
+    },
+    {
+      "name": "Projectos",
+      "hash": "#projects",
+      "section-identifier": "projects"
+    },
+    {
+      "name": "Skills",
+      "hash": "#skills",
+      "section-identifier": "skills"
+    },
+    {
+      "name": "Experiencia",
+      "hash": "#experience",
+      "section-identifier": "experience"
+    },
+    {
+      "name": "Contacto",
+      "hash": "#contact",
+      "section-identifier": "contact"
+    }
+  ],
+  "intro": {
+    "contactText": "Contáctame aquí",
+    "cvText": "Descargar CV"
+  },
+  "projects": {
+    "title": "Mis Proyectos"
+  },
+  "experience": {
+    "title": "Mi experiencia"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "description": "Por favor, contáctame vía email - francomusolino55@gmail.com - o envíame un mensaje directo al WhatsApp!",
+    "submitText": "Enviar",
+    "successText": "Email enviado correctamente!"
+  },
+  "footer": {
+    "rights": "2024 Franco. Todos los derechos reservados",
+    "about": "Este sitio fue desarrollado con React & Next.js, TypeScript, Tailwind CSS, Framer Motion, Strapi CMS & Vercel hosting"
+  },
+  "notFound": {
+    "title": "Esta página no ha sido encontrada",
+    "buttonText": "Volver atrás"
+  }
+}

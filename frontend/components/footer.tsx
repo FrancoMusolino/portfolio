@@ -1,16 +1,14 @@
-import React from "react";
+import { Dictionary } from "@/app/[lang]/dictionaries";
 
-export default function Footer() {
+type FooterProps = {
+  footerDict: Dictionary["footer"];
+};
+
+export async function Footer({ footerDict }: FooterProps) {
   return (
     <footer className="mb-10 px-4 text-center text-gray-500">
-      <small className="mb-2 block text-xs">
-        &copy; 2030 Ricardo. All rights reserved.
-      </small>
-      <p className="text-xs">
-        <span className="font-semibold">About this website:</span> built with
-        React & Next.js (App Router & Server Actions), TypeScript, Tailwind CSS,
-        Framer Motion, React Email & Resend, Vercel hosting.
-      </p>
+      <small className="mb-2 block text-xs">&copy; {footerDict.rights}</small>
+      <p className="text-xs">{footerDict.about}</p>
     </footer>
   );
 }
