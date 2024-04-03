@@ -2,6 +2,22 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
+const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
+
+export const metadata = {
+  metadataBase: new URL(`${protocol}://${process.env.VERCEL_URL}`),
+  alternates: {
+    canonical: "/",
+    languages: {
+      es: "/es",
+      en: "/en",
+    },
+  },
+  openGraph: {
+    images: "/opengraph-image",
+  },
+};
+
 export const alt = "Franco Musolino";
 export const size = {
   width: 400,
