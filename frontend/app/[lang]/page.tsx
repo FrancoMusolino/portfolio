@@ -22,7 +22,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
       <SectionDivider />
       <About locale={params.lang} />
       <Projects locale={params.lang} projectsDict={dict.projects} />
-      <Skills />
+      <Skills skillsDict={dict.skills} />
       <Experience lang={params.lang} experienceDict={dict.experience} />
       <Contact contactDict={dict.contact} />
     </main>

@@ -39,6 +39,9 @@
     "contactText": "Contact me here",
     "cvText": "Download CV"
   },
+  "skills": {
+    "title": "My skills"
+  },
   "projects": {
     "title": "My Projects"
   },
@@ -48,6 +51,8 @@
   "contact": {
     "title": "Contect Me",
     "description": "Please, contact me via email - francomusolino55@gmail.com - or directly via message using WhatsApp!",
+    "emailPlaceholder": "Your email",
+    "messagePlaceholder": "Your message",
     "submitText": "Submit",
     "successText": "Email sent successfully!"
   },

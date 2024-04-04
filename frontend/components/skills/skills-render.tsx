@@ -22,10 +22,11 @@ const fadeInAnimationVariants = {
 };
 
 type SkillsRenderProps = {
+  title: string;
   skills: Awaited<ReturnType<typeof getSkills>>;
 };
 
-export function SkillsRender({ skills }: SkillsRenderProps) {
+export function SkillsRender({ title, skills }: SkillsRenderProps) {
   const { ref } = useSectionInView("skills");
 
   return (
@@ -34,7 +35,7 @@ export function SkillsRender({ skills }: SkillsRenderProps) {
       ref={ref}
       className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
     >
-      <SectionHeading>My skills</SectionHeading>
+      <SectionHeading>{title}</SectionHeading>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
         {skills.map(({ attributes }, index) => (
           <motion.li

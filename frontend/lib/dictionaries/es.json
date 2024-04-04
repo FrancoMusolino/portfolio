@@ -20,7 +20,7 @@
       "section-identifier": "projects"
     },
     {
-      "name": "Skills",
+      "name": "Habilidades",
       "hash": "#skills",
       "section-identifier": "skills"
     },
@@ -39,6 +39,9 @@
     "contactText": "Contáctame aquí",
     "cvText": "Descargar CV"
   },
+  "skills": {
+    "title": "Mis habilidades"
+  },
   "projects": {
     "title": "Mis Proyectos"
   },
@@ -48,6 +51,8 @@
   "contact": {
     "title": "Contáctame",
     "description": "Por favor, contáctame vía email - francomusolino55@gmail.com - o envíame un mensaje directo al WhatsApp!",
+    "emailPlaceholder": "Tu email",
+    "messagePlaceholder": "Tu mensaje",
     "submitText": "Enviar",
     "successText": "Email enviado correctamente!"
   },

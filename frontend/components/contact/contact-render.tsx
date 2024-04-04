@@ -14,6 +14,8 @@ import { WhatsAppIcon } from "../icons";
 type ContactRenderProps = {
   title: string;
   description: string;
+  emailPlaceholder: string;
+  messagePlaceholder: string;
   submitText: string;
   successText: string;
 };
@@ -21,6 +23,8 @@ type ContactRenderProps = {
 export function ContactRender({
   title,
   description,
+  emailPlaceholder,
+  messagePlaceholder,
   submitText,
   successText,
 }: ContactRenderProps) {
@@ -75,12 +79,12 @@ export function ContactRender({
           type="email"
           required
           maxLength={500}
-          placeholder="Your email"
+          placeholder={emailPlaceholder}
         />
         <textarea
           className="h-52 my-3 rounded-lg borderBlack p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           name="message"
-          placeholder="Your message"
+          placeholder={messagePlaceholder}
           required
           maxLength={5000}
         />
