@@ -50,5 +50,5 @@ export async function POST(req: Request) {
 
   console.log(`Entry ${MESSAGES_BY_EVENT[data.event]} on model ${data.model}`);
 
-  return new Response("Ok", { status: 204 });
+  return new Response("Ok", { status: 200 });
 }
