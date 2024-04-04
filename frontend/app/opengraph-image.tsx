@@ -1,11 +1,9 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
-const protocol = process.env.NODE_ENV === "production" ? "https" : "http";
-
 export const metadata = {
-  metadataBase: new URL(`${protocol}://${process.env.VERCEL_URL}`),
+  metadataBase: new URL(
+    "https://portfolio-francomusolinos-projects.vercel.app/"
+  ),
   alternates: {
     canonical: "/",
     languages: {
