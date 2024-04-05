@@ -42,9 +42,10 @@ export const config = {
      * Match all request paths except for the ones starting with:
      * - api (API routes)
      * - _next/static (static files)
+     * - files on public directory (no matters which extension)
      * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|opengraph-image|CV-Franco_Emanuel_Musolino.pdf).*)",
+
+    "/((?!api|_next/static|.*\\..*|_next/image).*)",
   ],
 };
