@@ -4,8 +4,8 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 
-import { useTheme } from "@/context/theme-context";
 import { useParams } from "next/navigation";
+import { useTheme } from "next-themes";
 
 export type Experience = {
   title: string;
