@@ -10,10 +10,11 @@ import SectionHeading from "../section-heading";
 import { useSectionInView } from "@/lib/hooks";
 
 type AboutRenderProps = {
+  title: string;
   aboutMDX: string;
 };
 
-export function AboutRender({ aboutMDX }: AboutRenderProps) {
+export function AboutRender({ title, aboutMDX }: AboutRenderProps) {
   const { ref } = useSectionInView("about");
 
   return (
@@ -25,7 +26,7 @@ export function AboutRender({ aboutMDX }: AboutRenderProps) {
       transition={{ delay: 0.175 }}
       id="about"
     >
-      <SectionHeading>About me</SectionHeading>
+      <SectionHeading>{title}</SectionHeading>
       <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
         {aboutMDX}
       </Markdown>

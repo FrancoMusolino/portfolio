@@ -20,7 +20,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
     <main className="flex flex-col items-center px-4">
       <Intro locale={params.lang} introDict={dict.intro} />
       <SectionDivider />
-      <About locale={params.lang} />
+      <About locale={params.lang} aboutDict={dict.about} />
       <Projects locale={params.lang} projectsDict={dict.projects} />
       <Skills skillsDict={dict.skills} />
       <Experience lang={params.lang} experienceDict={dict.experience} />

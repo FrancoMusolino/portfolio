@@ -1,24 +1,8 @@
 import { ImageResponse } from "next/og";
 
-export const metadata = {
-  metadataBase: new URL(
-    "https://portfolio-francomusolinos-projects.vercel.app/"
-  ),
-  alternates: {
-    canonical: "/",
-    languages: {
-      es: "/es",
-      en: "/en",
-    },
-  },
-  openGraph: {
-    images: "/opengraph-image",
-  },
-};
-
 export const alt = "Franco Musolino";
 export const size = {
-  width: 400,
+  width: 300,
   height: 300,
 };
 

@@ -44,8 +44,8 @@ export const config = {
      * - _next/static (static files)
      * - files on public directory (no matters which extension)
      * - _next/image (image optimization files)
+     * - Open Grapgh image
      */
-
-    "/((?!api|_next/static|.*\\..*|_next/image).*)",
+    "/((?!api|_next/static|.*\\..*|_next/image|opengraph-image).*)",
   ],
 };

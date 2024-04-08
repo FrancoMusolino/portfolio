@@ -39,6 +39,9 @@
     "contactText": "Contáctame aquí",
     "cvText": "Descargar CV"
   },
+  "about": {
+    "title": "Sobre mí"
+  },
   "skills": {
     "title": "Mis habilidades"
   },

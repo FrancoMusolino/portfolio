@@ -13,6 +13,7 @@ import { Locale } from "@/lib/strapi/types";
 import { getDictionary } from "./dictionaries";
 
 import { Switches } from "@/components/switches";
+import { url } from "inspector";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { seo } = await getDictionary(params.lang);
 
+  const url = new URL(
+    process.env.NODE_ENV === "production"
+      ? "https://portfolio-francomusolinos-projects.vercel.app"
+      : "http://localhost:3000"
+  );
+
   return {
+    metadataBase: url,
     ...seo,
     openGraph: {
       ...seo,
-      url: `https://${process.env.VERCEL_URL}/${params.lang}`,
+      url,
     },
   };
 }
