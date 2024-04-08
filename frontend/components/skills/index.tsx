@@ -9,5 +9,7 @@ type SkillsProps = {
 export async function Skills({ skillsDict }: SkillsProps) {
   const skills = await getSkills();
 
+  console.log({ skills });
+
   return <SkillsRender skills={skills} {...skillsDict} />;
 }
