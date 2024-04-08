@@ -3,6 +3,11 @@ module.exports = ({ env }) => ({
     locales: ["es", "en"],
     defaultLocale: "es",
   },
+  graphql: {
+    config: {
+      maxLimit: -1,
+    },
+  },
   upload: {
     config: {
       provider: "cloudinary",
