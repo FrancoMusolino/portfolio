@@ -1000,7 +1000,6 @@ export interface ApiProjectProject extends Schema.CollectionType {
         };
       }>;
     order: Attribute.Integer &
-      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
