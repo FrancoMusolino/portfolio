@@ -1,6 +1,6 @@
 export const getProjectsByLocaleQuery = /* GraphQL */ `
   query getProjectsByLocale($locale: I18NLocaleCode) {
-    projects(locale: $locale) {
+    projects(locale: $locale, sort: "order") {
       data {
         attributes {
           title
