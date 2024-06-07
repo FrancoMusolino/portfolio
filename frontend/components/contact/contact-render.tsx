@@ -38,11 +38,10 @@ export function ContactRender({
   return (
     <Observe
       onElementIntersected={(elementId) => setActiveSection(elementId)}
-      opts={{ threshold: 0.2 }}
+      opts={{ threshold: 0.5 }}
       elementId="contact"
     >
       <motion.section
-        id="contact"
         className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
         initial={{
           opacity: 0,

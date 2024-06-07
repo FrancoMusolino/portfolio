@@ -21,7 +21,7 @@ export function AboutRender({ title, aboutMDX }: AboutRenderProps) {
   return (
     <Observe
       onElementIntersected={(elementId) => setActiveSection(elementId)}
-      opts={{ threshold: 0.2 }}
+      opts={{ threshold: 0.5 }}
       elementId="about"
     >
       <motion.section
@@ -29,7 +29,6 @@ export function AboutRender({ title, aboutMDX }: AboutRenderProps) {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.175 }}
-        id="about"
       >
         <SectionHeading>{title}</SectionHeading>
         <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
