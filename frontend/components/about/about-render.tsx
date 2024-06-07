@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 import SectionHeading from "../section-heading";
-import { Observerable } from "../oberverable";
+import { Observe } from "../observe";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
 type AboutRenderProps = {
@@ -19,9 +19,8 @@ export function AboutRender({ title, aboutMDX }: AboutRenderProps) {
   const { setActiveSection } = useActiveSectionContext();
 
   return (
-    <Observerable
+    <Observe
       onElementIntersected={(elementId) => setActiveSection(elementId)}
-      onElementLeaveIntersection={() => console.log("Hola")}
       opts={{ threshold: 0.2 }}
       elementId="about"
     >
@@ -37,6 +36,6 @@ export function AboutRender({ title, aboutMDX }: AboutRenderProps) {
           {aboutMDX}
         </Markdown>
       </motion.section>
-    </Observerable>
+    </Observe>
   );
 }

@@ -9,7 +9,7 @@ type ObserverProps = PropsWithChildren & {
   elementId?: string;
 };
 
-export const Observerable = ({
+export const Observe = ({
   children,
   opts,
   elementId,
