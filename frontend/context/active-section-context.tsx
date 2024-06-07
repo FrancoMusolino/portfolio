@@ -8,8 +8,8 @@ type ActiveSectionContextProviderProps = {
 };
 
 type ActiveSectionContextType = {
-  activeSection: SectionIdentifier;
-  setActiveSection: React.Dispatch<React.SetStateAction<SectionIdentifier>>;
+  activeSection: string;
+  setActiveSection: React.Dispatch<React.SetStateAction<string>>;
   timeOfLastClick: number;
   setTimeOfLastClick: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -20,7 +20,7 @@ export const ActiveSectionContext =
 export default function ActiveSectionContextProvider({
   children,
 }: ActiveSectionContextProviderProps) {
-  const [activeSection, setActiveSection] = useState<SectionIdentifier>("home");
+  const [activeSection, setActiveSection] = useState<string>("home");
   const [timeOfLastClick, setTimeOfLastClick] = useState(0); // we need to keep track of this to disable the observer temporarily when user clicks on a link
 
   return (
