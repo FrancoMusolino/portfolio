@@ -45,7 +45,7 @@ export function IntroRender({
           >
             <Image
               src={profilePic}
-              alt="Ricardo portrait"
+              alt="Franco Emanuel Musolino"
               width="192"
               height="192"
               quality="95"
