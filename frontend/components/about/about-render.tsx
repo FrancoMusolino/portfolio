@@ -8,7 +8,7 @@ import rehypeRaw from "rehype-raw";
 
 import SectionHeading from "../section-heading";
 import { Observe } from "../observe";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useOnIntersection } from "@/hooks/useOnIntersection";
 
 type AboutRenderProps = {
   title: string;
@@ -16,11 +16,11 @@ type AboutRenderProps = {
 };
 
 export function AboutRender({ title, aboutMDX }: AboutRenderProps) {
-  const { setActiveSection } = useActiveSectionContext();
+  const handleIntersection = useOnIntersection();
 
   return (
     <Observe
-      onElementIntersected={(elementId) => setActiveSection(elementId)}
+      onElementIntersected={handleIntersection}
       opts={{ threshold: 0.5 }}
       elementId="about"
     >

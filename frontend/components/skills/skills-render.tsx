@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "../section-heading";
 import { getSkills } from "@/lib/strapi";
 import { Observe } from "../observe";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useOnIntersection } from "@/hooks/useOnIntersection";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -28,11 +28,11 @@ type SkillsRenderProps = {
 };
 
 export function SkillsRender({ title, skills }: SkillsRenderProps) {
-  const { setActiveSection } = useActiveSectionContext();
+  const handleIntersection = useOnIntersection();
 
   return (
     <Observe
-      onElementIntersected={(elementId) => setActiveSection(elementId)}
+      onElementIntersected={handleIntersection}
       opts={{ threshold: 0.5 }}
       elementId="skills"
     >

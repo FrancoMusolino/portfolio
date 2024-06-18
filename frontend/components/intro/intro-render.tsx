@@ -8,10 +8,11 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
-import { useActiveSectionContext } from "@/context/active-section-context";
 import { ArrowRight, DownloadIcon, GithubIcon } from "../icons";
 import profilePic from "../../public/intro.jpg";
 import { Observe } from "../observe";
+import { useOnIntersection } from "@/hooks/useOnIntersection";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 type IntroRenderProps = {
   introMDX: string;
@@ -25,10 +26,11 @@ export function IntroRender({
   cvText,
 }: IntroRenderProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const handleIntersection = useOnIntersection();
 
   return (
     <Observe
-      onElementIntersected={(elementId) => setActiveSection(elementId)}
+      onElementIntersected={handleIntersection}
       opts={{ threshold: 0.5 }}
       elementId="home"
     >

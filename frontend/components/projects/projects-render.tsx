@@ -4,7 +4,7 @@ import React from "react";
 import SectionHeading from "../section-heading";
 import { Project, ProjectCard } from "./project";
 import { Observe } from "../observe";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useOnIntersection } from "@/hooks/useOnIntersection";
 
 type ProjectsRenderProps = {
   title: string;
@@ -12,11 +12,11 @@ type ProjectsRenderProps = {
 };
 
 export function ProjectsRender({ title, projects }: ProjectsRenderProps) {
-  const { setActiveSection } = useActiveSectionContext();
+  const handleIntersection = useOnIntersection();
 
   return (
     <Observe
-      onElementIntersected={(elementId) => setActiveSection(elementId)}
+      onElementIntersected={(elementId) => handleIntersection(elementId)}
       opts={{ threshold: 0.5 }}
       elementId="projects"
     >

@@ -10,7 +10,7 @@ import {
   ExperienceTimelineElement,
 } from "./experience-timeline-element";
 import { Observe } from "../observe";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useOnIntersection } from "@/hooks/useOnIntersection";
 
 type ExperienceRenderProps = {
   items: Experience[];
@@ -18,11 +18,11 @@ type ExperienceRenderProps = {
 };
 
 export function ExperienceRender({ items, title }: ExperienceRenderProps) {
-  const { setActiveSection } = useActiveSectionContext();
+  const handleIntersection = useOnIntersection();
 
   return (
     <Observe
-      onElementIntersected={(elementId) => setActiveSection(elementId)}
+      onElementIntersected={handleIntersection}
       opts={{ threshold: 0.5 }}
       elementId="experience"
     >

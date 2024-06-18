@@ -10,7 +10,7 @@ import { SubmitBtn } from "../submit-btn";
 import { EMAIL_REGEXP } from "@/lib/constants";
 import { WhatsAppIcon } from "../icons";
 import { Observe } from "../observe";
-import { useActiveSectionContext } from "@/context/active-section-context";
+import { useOnIntersection } from "@/hooks/useOnIntersection";
 
 type ContactRenderProps = {
   title: string;
@@ -29,7 +29,8 @@ export function ContactRender({
   submitText,
   successText,
 }: ContactRenderProps) {
-  const { setActiveSection } = useActiveSectionContext();
+  const handleIntersection = useOnIntersection();
+
   const html = description.replace(
     EMAIL_REGEXP,
     (match) => `<a class="!underline" href="mailto:${match}">${match}</a>`
@@ -37,12 +38,12 @@ export function ContactRender({
 
   return (
     <Observe
-      onElementIntersected={(elementId) => setActiveSection(elementId)}
+      onElementIntersected={handleIntersection}
       opts={{ threshold: 0.5 }}
       elementId="contact"
     >
       <motion.section
-        className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center"
+        className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center mx-auto"
         initial={{
           opacity: 0,
         }}
