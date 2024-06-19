@@ -1,17 +1,24 @@
 "use client";
 
-import type { SectionIdentifier } from "@/lib/types";
-import React, { useState, createContext, useContext } from "react";
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useMemo,
+  useEffect,
+} from "react";
+import { calcObserverThreshold } from "@/lib/utils";
 
 type ActiveSectionContextProviderProps = {
   children: React.ReactNode;
 };
 
 type ActiveSectionContextType = {
-  activeSection: SectionIdentifier;
-  setActiveSection: React.Dispatch<React.SetStateAction<SectionIdentifier>>;
+  activeSection: string;
+  setActiveSection: React.Dispatch<React.SetStateAction<string>>;
   timeOfLastClick: number;
   setTimeOfLastClick: React.Dispatch<React.SetStateAction<number>>;
+  SECTION_OBSERVER_OPTS: IntersectionObserverInit;
 };
 
 export const ActiveSectionContext =
@@ -20,8 +27,28 @@ export const ActiveSectionContext =
 export default function ActiveSectionContextProvider({
   children,
 }: ActiveSectionContextProviderProps) {
-  const [activeSection, setActiveSection] = useState<SectionIdentifier>("home");
+  const [activeSection, setActiveSection] = useState<string>("home");
   const [timeOfLastClick, setTimeOfLastClick] = useState(0); // we need to keep track of this to disable the observer temporarily when user clicks on a link
+  const [innerHeight, setInnerHeight] = useState(
+    "Window" in globalThis ? window.innerHeight : 0
+  );
+
+  const SECTION_OBSERVER_OPTS: IntersectionObserverInit = useMemo(
+    () => ({
+      threshold: calcObserverThreshold(innerHeight),
+    }),
+    [innerHeight, calcObserverThreshold]
+  );
+
+  useEffect(() => {
+    function updateInnerHeight() {
+      setInnerHeight(window.innerHeight);
+    }
+
+    window.addEventListener("resize", updateInnerHeight);
+
+    return () => window.removeEventListener("resize", updateInnerHeight);
+  }, []);
 
   return (
     <ActiveSectionContext.Provider
@@ -30,6 +57,7 @@ export default function ActiveSectionContextProvider({
         setActiveSection,
         timeOfLastClick,
         setTimeOfLastClick,
+        SECTION_OBSERVER_OPTS,
       }}
     >
       {children}

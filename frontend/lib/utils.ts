@@ -24,3 +24,7 @@ export const getErrorMessage = (error: unknown): string => {
 
   return message;
 };
+
+export const calcObserverThreshold = (height: number): number => {
+  return Math.min(height / 3 / 1000, 1);
+};
