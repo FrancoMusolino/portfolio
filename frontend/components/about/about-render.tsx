@@ -7,7 +7,9 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 import SectionHeading from "../section-heading";
-import { useSectionInView } from "@/lib/hooks";
+import { Observe } from "../observe";
+import { useOnIntersection } from "@/hooks/useOnIntersection";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 type AboutRenderProps = {
   title: string;
@@ -15,21 +17,26 @@ type AboutRenderProps = {
 };
 
 export function AboutRender({ title, aboutMDX }: AboutRenderProps) {
-  const { ref } = useSectionInView("about");
+  const handleIntersection = useOnIntersection();
+  const { SECTION_OBSERVER_OPTS } = useActiveSectionContext();
 
   return (
-    <motion.section
-      ref={ref}
-      className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.175 }}
-      id="about"
+    <Observe
+      onElementIntersected={handleIntersection}
+      opts={SECTION_OBSERVER_OPTS}
+      elementId="about"
     >
-      <SectionHeading>{title}</SectionHeading>
-      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
-        {aboutMDX}
-      </Markdown>
-    </motion.section>
+      <motion.section
+        className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.175 }}
+      >
+        <SectionHeading>{title}</SectionHeading>
+        <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+          {aboutMDX}
+        </Markdown>
+      </motion.section>
+    </Observe>
   );
 }
