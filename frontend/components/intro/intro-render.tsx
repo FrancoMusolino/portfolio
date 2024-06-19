@@ -25,16 +25,17 @@ export function IntroRender({
   contactText,
   cvText,
 }: IntroRenderProps) {
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const { setActiveSection, setTimeOfLastClick, SECTION_OBSERVER_OPTS } =
+    useActiveSectionContext();
   const handleIntersection = useOnIntersection();
 
   return (
     <Observe
       onElementIntersected={handleIntersection}
-      opts={{ threshold: 0.5 }}
+      opts={SECTION_OBSERVER_OPTS}
       elementId="home"
     >
-      <section className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]">
+      <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
         <div className="flex items-center justify-center">
           <div className="relative">
             <motion.div

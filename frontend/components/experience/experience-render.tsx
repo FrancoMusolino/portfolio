@@ -11,6 +11,7 @@ import {
 } from "./experience-timeline-element";
 import { Observe } from "../observe";
 import { useOnIntersection } from "@/hooks/useOnIntersection";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 type ExperienceRenderProps = {
   items: Experience[];
@@ -19,14 +20,15 @@ type ExperienceRenderProps = {
 
 export function ExperienceRender({ items, title }: ExperienceRenderProps) {
   const handleIntersection = useOnIntersection();
+  const { SECTION_OBSERVER_OPTS } = useActiveSectionContext();
 
   return (
     <Observe
       onElementIntersected={handleIntersection}
-      opts={{ threshold: 0.5 }}
+      opts={SECTION_OBSERVER_OPTS}
       elementId="experience"
     >
-      <section className="scroll-mt-28 mb-28 sm:mb-40">
+      <section className="mb-28 sm:mb-40">
         <SectionHeading>{title}</SectionHeading>
         <VerticalTimeline lineColor="" animate>
           {items.map((item, index) => (

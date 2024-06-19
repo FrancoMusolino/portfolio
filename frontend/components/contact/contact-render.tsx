@@ -11,6 +11,7 @@ import { EMAIL_REGEXP } from "@/lib/constants";
 import { WhatsAppIcon } from "../icons";
 import { Observe } from "../observe";
 import { useOnIntersection } from "@/hooks/useOnIntersection";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 type ContactRenderProps = {
   title: string;
@@ -30,6 +31,7 @@ export function ContactRender({
   successText,
 }: ContactRenderProps) {
   const handleIntersection = useOnIntersection();
+  const { SECTION_OBSERVER_OPTS } = useActiveSectionContext();
 
   const html = description.replace(
     EMAIL_REGEXP,
@@ -39,7 +41,7 @@ export function ContactRender({
   return (
     <Observe
       onElementIntersected={handleIntersection}
-      opts={{ threshold: 0.5 }}
+      opts={SECTION_OBSERVER_OPTS}
       elementId="contact"
     >
       <motion.section

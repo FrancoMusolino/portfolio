@@ -7,6 +7,7 @@ import SectionHeading from "../section-heading";
 import { getSkills } from "@/lib/strapi";
 import { Observe } from "../observe";
 import { useOnIntersection } from "@/hooks/useOnIntersection";
+import { useActiveSectionContext } from "@/context/active-section-context";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -29,14 +30,15 @@ type SkillsRenderProps = {
 
 export function SkillsRender({ title, skills }: SkillsRenderProps) {
   const handleIntersection = useOnIntersection();
+  const { SECTION_OBSERVER_OPTS } = useActiveSectionContext();
 
   return (
     <Observe
       onElementIntersected={handleIntersection}
-      opts={{ threshold: 0.5 }}
+      opts={SECTION_OBSERVER_OPTS}
       elementId="skills"
     >
-      <section className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40">
+      <section className="mb-28 max-w-[53rem] text-center sm:mb-40">
         <SectionHeading>{title}</SectionHeading>
         <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
           {skills.map(({ attributes }, index) => (
