@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -25,6 +26,8 @@ export function IntroRender({
   contactText,
   cvText,
 }: IntroRenderProps) {
+  const { lang } = useParams();
+
   const { setActiveSection, setTimeOfLastClick, SECTION_OBSERVER_OPTS } =
     useActiveSectionContext();
   const handleIntersection = useOnIntersection();
@@ -106,7 +109,11 @@ export function IntroRender({
 
           <a
             className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10"
-            href="/CV-Franco_Emanuel_Musolino.pdf"
+            href={
+              lang === "en"
+                ? "/CV_en-Franco_Emanuel_Musolino.pdf"
+                : "/CV_es-Franco_Emanuel_Musolino.pdf"
+            }
             download
           >
             {cvText}{" "}
