@@ -1,6 +1,7 @@
 export * from "./arrow-right";
 export * from "./download";
 export * from "./github";
+export * from "./linkedin";
 export * from "./moon";
 export * from "./paper-plane";
 export * from "./sun";

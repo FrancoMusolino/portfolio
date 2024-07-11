@@ -9,7 +9,7 @@ import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
-import { ArrowRight, DownloadIcon, GithubIcon } from "../icons";
+import { ArrowRight, DownloadIcon, GithubIcon, LinkedinIcon } from "../icons";
 import profilePic from "../../public/intro.jpg";
 import { Observe } from "../observe";
 import { useOnIntersection } from "@/hooks/useOnIntersection";
@@ -122,13 +122,15 @@ export function IntroRender({
             </div>
           </a>
 
-          {/* <a
-          className="bg-white p-4 text-gray-700 hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://linkedin.com"
-          target="_blank"
+          <a
+            className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+            href="https://www.linkedin.com/in/franco-musolino-396817316"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Linkedin"
           >
-          <BsLinkedin />
-          </a> */}
+            <LinkedinIcon />
+          </a>
 
           <a
             className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
